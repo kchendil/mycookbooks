@@ -1,0 +1,260 @@
+#########################################
+# IDMReport installer properties file   #
+#########################################
+
+# Application Server Platform
+# Values can be
+# JBoss, WebLogic, WebSphere
+NOVL_APP_SERVER_TYPE=JBoss
+
+
+# Choose Install Folder
+# Directory you want to install files to
+USER_INSTALL_DIR=<%= node["reporting"]["reporting_install_loc"] %>
+
+# If this vallue is true, then
+# the installer will just install the Reporting
+# wars into the directory the user chooses as
+# the USER_INSTALL_DIR
+# If false, it will do a complete install.
+# Default is false
+NOVL_INSTALL_ONLY=false
+
+# IDMReport log file name
+# Enter the full path to the 
+# log file.
+# Default is USER_INSTALL_DIR/RPT_Install.log
+NOVL_INSTALL_LOG=
+
+# PostgreSQL port.
+# default is 15432
+# if not default, put value here
+NOVL_DB_PORT=<%= node["reporting"]["db_port"] %>
+
+# Password for the DBA USer in the SIEM database
+# this was created in the AES Install
+NOVL_DB_USER_PASSWORD=<%= node["reporting"]["db_password"] %>
+
+# Ldap Information
+# ----------------
+# name of LDAP server and Port connecting to
+# ex; localhost:389
+NOVL_LDAP_SERVER=localhost:<%= node["reporting"]["ldaps_port"] %>
+
+# Location of User Container
+# ex; ou=users,ou=medical-idmsample,o=novell
+NOVL_USER_CONTAINER=<%= node["reporting"]["user_container"] %>
+
+# Token expiration value, in minutes
+# Default is 60
+NOVL_LIFETIME_VALUE=60
+
+# LDAP Secure Port
+#---------
+# values can be 
+# NOVL_USE_SSL=secure SSL
+# to use a secure port (636) to your LDAP server
+# or 
+# NOVL_USE_SSL=non secure SSL
+# for a  non secure (386) SSL Port
+NOVL_USE_SSL=secure SSL
+
+# Report Admin Driver Name
+# ex; IDM40Driver
+NOVL_DRIVER_NAME=User Application Driver
+
+# Report Driver Set Name
+# ex; TestDrivers
+NOVL_DRIVER_SET_NAME=driverset1
+
+# Reporting path DN value
+# ex; o=xxx or
+# dn==xxx,ou=xxx,o=xxx
+NOVL_DRIVERSET_CONTEXT_DN=o=system
+
+# JBoss Configuration
+#-------------------
+# Location of the deploy directory
+# if appserver is JBoss
+#
+NOVL_JBOSS_BASE_FOLDER=/opt/novell/idm/rbpm/jboss/server/IDMProv/deploy
+
+###################################
+# SMTP CONfiguration parameters   #
+###################################
+
+# Your SMTP Server name
+NOVL_SMTP_SERVER=127.0.0.1
+
+# Your SMTP Port
+# Default 435
+NOVL_SMTP_PORT=435
+
+# Use SSL for SMTP
+# Value = true/false
+NOVL_SMTP_TRUE_SSL=False
+
+
+# Does SMTP need authorization
+# True/False
+NOVL_SMTP_TRUE_AUTHENTICATION=False
+
+
+# User SMTP Email
+NOVL_SMTP_USER_EMAIL=myname@mycompany.com
+
+# SMTP Email password
+NOVL_SMTP_PASSWORD=
+
+# Default SMTP Email User
+# This is the user that is in the From: field
+# ex; admin@mycompany.com
+NOVL_SMTP_DEFAULT=admin@mycompany.com
+
+# Value of Reporting Unit.
+# Values can be Day, Week, or Month
+NOVL_DAY_UNIT=Day
+
+
+# Enter value to keep reports
+# This value is based on the NOVL_DAY_UNIT value.
+# If NOVL_DAY_UNIT = Day and Retention unit = 1
+# the report will be deleted after 1 day
+NOVL_RETENTION_UNIT=1
+
+# Folder to retain reports
+NOVL_REPORT_FOLDER=/opt/novell/idm/rbpm/IDMReporting/
+
+# Event Audit Service Server
+# Enter the name of the server the 
+# Event Audit Service Server is running on
+NOVL_EAS_SERVER=localhost
+
+# System password from activemqusers.properties file.
+# This file is located at
+# /etc/opt/novell/sentinel_eas/config
+# You may need your AES Admin to provide this infromation.
+# ex; NOVL_EAS_SYSTEM_PASSWORD=be9cdd1d2d30c2d7815f6d30c852e08a
+NOVL_EAS_SYSTEM_PASSWORD=<%= @eas_system_password %>
+
+
+# This value is the password to use for the idmrptsrv user
+# which will be the owner of the database schemas and objects (tables & views)
+NOVL_IDM_SRV_PWD=n
+
+# This value is the idmrptuser password to use for
+# read-only access to reporting data.
+NOVL_IDM_USER_PWD=n
+
+# This value is to enable sub-container searching for login.
+# Set to 1, for searching
+# set to 0, for not searching
+NOVL_SUBCONTAINER_SEARCH=1
+
+# Ldap Admin
+# ex; cn=admin,o=novell
+# Only needed if NOVL_SUBCONTAINER_SEARCH=1
+# Otherwise ignored
+NOVL_ADMIN_USER=<%= node["reporting"]["dn_admin_name"] %>
+
+# Ldap Admin Password
+# Only needed if NOVL_SUBCONTAINER_SEARCH=1
+# Otherwise ignored
+NOVL_ADMIN_PWD=n
+
+# Sub-Container Searching Login Name
+# ex; cn
+# Only needed if NOVL_SUBCONTAINER_SEARCH=1
+# Otherwise ignored
+NOVL_SUBCONTAINER_SEARCH_NAME=cn
+
+
+# Locale for Reporting
+# choices are
+# en,fr,de,it,da,es,ja,pt_BR,ru,nl,sv,zh_CN,zh_TW
+# Default is en
+NOVL_CHOSEN_LOCALE=
+
+# Novell Auditing
+# Set value to 1, if you wish to enable Novell Auditing Server
+# Default = 1, Novell Audit  enabled
+NOVL_AUDIT=
+
+# Audit Server
+# Enter the name of the server where Novell Auditing is running 
+# Default = localhost
+NOVL_AUDIT_SERVER=localhost
+
+# Audit Cache Folder
+# Folder to contain logging cache
+NOVL_AUDIT_JCACHE_FOLDER=/opt/novell/ReportSilent
+
+# Use custom certificate
+# To use custom certificates value=1
+# Default = 0
+NOVL_USE_CUSTOM_CERT_YES=
+
+# Enter Custom Certificate
+# Value is used only if NOVL_USE_CUSTOM_CERT_YES=1
+NOVL_CUSTOM_CERT=
+
+# Enter Custom Certificate
+# Value is used only if NOVL_USE_CUSTOM_CERT_YES=1
+NOVL_CUSTOM_PKEY=silent
+
+
+#####################################################
+# The followig are Report Config Specific           #
+# If you are using this silent properties file      #
+# for a new IDMReporting, these values are ignored. #
+#####################################################
+
+#
+# modify or reset values for system or user preferences
+# values can be System or user
+NOVL_PREF_SELECTED=
+
+#
+# change current locale
+# values are 1 = change 0 = no change
+# default 0
+NOVL_CHANGE_LOCALE=
+
+#
+# value of locale to change
+# must be an existing locale
+# if NOVL_CHANGE_LOCALE=0 this value is ignored
+NOVL_LOCALE_TO_CHANGE=
+
+#
+# add a locale
+# values are 1 = add 0 = no change
+# default 0
+NOVL_ADD_LOCALE=
+
+#
+# value of locale to add
+# 
+# if NOVL_ADD_LOCALE=0 this value is ignored
+NOVL_ADDED_NEW_LOCALE=
+
+
+
+#
+# delete a locale
+# values are 1 = delete 0 = no change
+# default 0
+NOVL_DELETE_LOCALE=
+
+#
+# value of locale to delete
+# 
+# if NOVL_DELETE_LOCALE=0 this value is ignored
+NOVL_LOCALE_TO_DELETE=
+      
+NOVL_DB_HOST=127.0.0.1
+NOVL_DB_USER=dbauser
+NOVL_DB_RPT_USER_PASSWORD=n
+NOVL_DB_JARFILE_NAME=postgresql-8.4-701.jdbc4.jar
+NOVL_DB_JARFILE_NAME_PARENT=/opt/novell/sentinel_eas/lib/
+NOVL_AUDIT_CACHE_FOLDER=/var/opt/novell/idm/audit

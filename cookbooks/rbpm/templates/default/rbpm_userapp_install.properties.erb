@@ -1,0 +1,103 @@
+
+# This file contains name=value pairs that can be read by the Identity Manager 
+# User Application installer. This allows you to set all the values required 
+# here and execute the installer 'silently'. This is done with the command, 
+# java -jar ./IdmUserApp.jar -i silent -f <path to this file>. For example:
+#
+# java -jar ./IdmUserApp.jar -i silent -f /home/jdoe/idm-install-files/silent.properties
+
+# Required for silent installs. Do not change.
+NOVL_PROPS_FILE=1
+NOVL_SKIP_SET_DBDEFAULTS=1
+NOVL_JBOSSMYSQL_RUN=No
+
+# Required to outline Install compared to Configure
+# Valid values are 'true' or 'false'
+NOVL_INSTALL_ONLY=true
+
+# Required for silent installs
+# Do not try to auto-find the WAR for silent install
+# Do not change.
+NOVL_SKIP_FINDWAR=1
+
+# Path to the WAR file
+# example: /home/jdoe/idm-install-files/IDM.war
+NOVL_WAR_FILE=<%= node["rbpm"]["rbpm_war_install_loc"] %>
+
+# Valid values:
+# 'provisioning' or 'default', no quotes
+NOVL_WAR_TYPE=provisioning
+
+# Valid values:
+# 'true' or 'false', no quotes
+NOVL_WAR_TYPE_STANDARD=false
+
+# Valid values:
+# 'true' or 'false', no quotes
+NOVL_WAR_TYPE_PROVISIONING=true
+
+# The root of your installation for logs and scripts
+# example: /opt/novell/idm
+USER_INSTALL_DIR=<%= node["rbpm"]["rbpm_install_loc"] %>
+
+# Application server for deployment
+# Valid values:
+# 'WebSphere' or 'JBoss', no quotes
+NOVL_APP_SERVER_TYPE_CHOICE=JBoss
+
+#
+# Application Server Configuration
+#
+
+
+# Base folder of your JBoss installation.
+# example: /opt/idm/jboss-mysql/jboss
+NOVL_JBOSS_BASE_FOLDER=<%= node["rbpm"]["rbpm_jboss_install_loc"] %>
+
+# Host name of your JBoss server
+# examples: 
+#   localhost
+#   10.20.30.40
+#   myhost.mycompany.com
+NOVL_JBOSS_HOST_NAME=localhost
+
+# Copy the 'default' JBoss server? (non clustering)
+# Valid values: 1 (for true) or 0 (for false)
+NOVL_JBOSS_SERVER_DEFAULT=1
+
+# Copy the 'all' JBoss server? (clustering)
+# Valid values: 1 (for true) or 0 (for false)
+NOVL_JBOSS_SERVER_ALL=0
+
+# Application context name
+# example: IDM
+NOVL_APPLICATION_NAME=IDMProv
+
+#
+# Database Configuration
+#
+
+# Required
+# Please enter the option to create the
+# database.
+# now = create the database now
+# file =  write SQL output to file
+# startup = create the databases at application start
+NOVL_CREATE_DB=startup
+
+#
+# Vault Configuration
+#
+
+
+# Required
+# Populate the war with the IDM configurations entered below
+# or choose to configure it later, and just install
+# the user app files.
+# Values = Now or Later
+# ex; RUN_LDAPCONFIG=Now
+RUN_LDAPCONFIG=Later
+
+
+
+

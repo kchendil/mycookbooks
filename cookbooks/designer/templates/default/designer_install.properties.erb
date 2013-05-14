@@ -1,0 +1,44 @@
+#
+# This is a template file for the silent installation of 'Designer for Identity Manager'.
+# Make a copy of this file, modify the parameters and pass it to the respective platform installer.
+#
+# The command syntax for the installers are as follows -
+# Linux:
+# <CD_Designer_linux_path_>/designer_install/install -i silent -f <path>/designerInstaller.properties
+# Windows:
+# <CD_Designer_windows_path>\designer_install\install.exe -i silent -f <path>\designerInstaller.properties
+#
+
+
+#--------------------------------------------------------------------------------
+# This parameter identifies the location where the Designer should be installed.
+# If the location does not end with 'designer', it would be appended automatically.  
+#
+# Example for Linux:
+# USER_INSTALL_DIR=/home/user/designer
+# Example for Windows:
+# USER_INSTALL_DIR=C:\\Program Files\\Novell\\Designer
+# Please note for Windows the path separators is "\\"
+#--------------------------------------------------------------------------------
+USER_INSTALL_DIR=<%= node["designer"]["designer_install_loc"] %>
+
+
+#--------------------------------------------------------------------------------
+# This parameter defines the locale in which the Designer would start after the 
+# installation. The various supported locales are as below.
+# Use the short form while assigning the value. For example use 'en' for English
+#
+# zh_CN - Chinese Simplified
+# zh_TW - Chinese Traditional
+# nl - Dutch
+# en - English
+# fr - French
+# de - German
+# it - Italian
+# ja - Japanese
+# pt_BR - Portuguese Brazil
+# es - Spanish
+# 
+#--------------------------------------------------------------------------------
+SELECTED_DESIGNER_LOCALE=<%= node["designer"]["designer_locale"] %>
+

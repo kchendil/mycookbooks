@@ -1,0 +1,18 @@
+# Application Server Platform
+# Values can be
+# JBoss, WebLogic, WebSphere
+NOVL_APP_SERVER_TYPE=JBoss
+
+
+# Choose Install Folder
+# Directory you want to install files to
+USER_INSTALL_DIR=<%= node["reporting"]["reporting_install_loc"] %>
+
+# IDMReport log file name
+# Enter the full path to the 
+# log file.
+# Default is USER_INSTALL_DIR/RPT_Install.log
+NOVL_INSTALL_LOG=<%= node["reporting"]["reporting_log_loc"] %>
+
+NOVL_INSTALL_ONLY=true
+
