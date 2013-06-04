@@ -39,7 +39,7 @@ NOVL_DB_USER_PASSWORD=<%= node["reporting"]["db_password"] %>
 # ----------------
 # name of LDAP server and Port connecting to
 # ex; localhost:389
-NOVL_LDAP_SERVER=localhost:<%= node["reporting"]["ldaps_port"] %>
+NOVL_LDAP_SERVER=localhost:<%= node["reporting"]["ldap_port"] %>
 
 # Location of User Container
 # ex; ou=users,ou=medical-idmsample,o=novell
@@ -57,11 +57,11 @@ NOVL_LIFETIME_VALUE=60
 # or 
 # NOVL_USE_SSL=non secure SSL
 # for a  non secure (386) SSL Port
-NOVL_USE_SSL=secure SSL
+NOVL_USE_SSL=non secure SSL
 
 # Report Admin Driver Name
 # ex; IDM40Driver
-NOVL_DRIVER_NAME=User Application Driver
+NOVL_DRIVER_NAME=UserApplication
 
 # Report Driver Set Name
 # ex; TestDrivers

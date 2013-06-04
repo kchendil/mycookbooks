@@ -43,12 +43,12 @@ end
   
  end
  
-  execute "ReSync DCS Driver" do
-   command " LD_LIBRARY_PATH=\"#{build_loc}\" \"#{jre_loc}/bin/java\" -cp \"#{build_loc}/dirxml_misc.jar\":\"#{build_loc}/nxsl.jar\":\"#{build_loc}/xp.jar\":\"#{build_loc}/ldap.jar\":\"#{build_loc}/uainstaller.jar\" com.novell.nds.dirxml.util.DxCommand -user \"#{admin_name}\" -host localhost -password #{idm_password} -port 524 -resyncdriver \"Data Collection Service Driver.driverset1.system\" > \"/var/opt/novell/resync_dcs_driver.log\" 2>&1  " 
-   creates "/var/opt/novell/resync_dcs_driver.log"
-   action :run
+  # execute "ReSync DCS Driver" do
+   # command " LD_LIBRARY_PATH=\"#{build_loc}\" \"#{jre_loc}/bin/java\" -cp \"#{build_loc}/dirxml_misc.jar\":\"#{build_loc}/nxsl.jar\":\"#{build_loc}/xp.jar\":\"#{build_loc}/ldap.jar\":\"#{build_loc}/uainstaller.jar\" com.novell.nds.dirxml.util.DxCommand -user \"#{admin_name}\" -host localhost -password #{idm_password} -port 524 -resyncdriver \"Data Collection Service Driver.driverset1.system\" > \"/var/opt/novell/resync_dcs_driver.log\" 2>&1  " 
+   # creates "/var/opt/novell/resync_dcs_driver.log"
+   # action :run
   
- end
+ # end
 #LD_LIBRARY_PATH="/home/vagrant/IDM402AE/test/install/utilities" "/root/idm/jre/bin/java" -cp "/home/vagrant/IDM402AE/test/install/utilities/dirxml_misc.jar":"/home/vagrant/IDM402AE/test/install/utilities/nxsl.jar":"/home/vagrant/IDM402AE/test/install/utilities/xp.jar":"/home/vagrant/IDM402AE/test/install/utilities/ldap.jar":"/home/vagrant/IDM402AE/test/install/utilities/uainstaller.jar" com.novell.nds.dirxml.util.DxCommand -user "admin.servers.system" -host localhost -password n -port 524 -resyncdriver "Data Collection Service Driver.driverset1.system" > "/var/opt/novell/resync_dcs_driver.log" 2>&1
  
  

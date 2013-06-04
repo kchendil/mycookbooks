@@ -12,10 +12,17 @@ reporting_build_loc=node['reporting']['reporting_build_loc']
 jre_loc=node['reporting']['jre_loc']
 
 #def eas_password()
-file = File.open("/etc/opt/novell/sentinel_eas/config/activemqusers.properties", "r")
+if File.exist?("/etc/opt/novell/sentinel_eas/config/activemqusers.properties")
+file = File.open("/etc/opt/novell/sentinel_eas/config/activemqusers.properties", "rb")
+if file
 contents = file.read
 password= contents.lines.first.split('=')[1]
 file.close
+else
+   puts "Unable to open file!"
+end
+
+end
   # return password
 #end
 
