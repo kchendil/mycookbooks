@@ -1,8 +1,8 @@
 #
-# Cookbook Name:: jetty
+# Cookbook Name:: designer
 # Attributes:: default
 #
-# Copyright 2010, Opscode, Inc.
+# Copyright 2013, NetIQ.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,6 +18,6 @@
 # default tomcat attributes
 
 default['designer']['designer_install_loc'] = "/opt/novell/idm/Designer/"
-default['designer']['designer_locale'] = "fr"
+default['designer']['designer_locale'] = "en"
 default['designer']['designer_build_loc'] = "/home/vagrant/IDM402AE/test/products/Designer/install"
 default['designer']['jre_loc'] = "/root/idm/jre"
